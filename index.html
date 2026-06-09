@@ -3,600 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Personal Website</title>
-
+<title>Gabriel | Survival Journal</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+:root{
+--grass:#6b8f3d;
+--grass-dark:#4f6a2e;
+--oak:#9b6b43;
+--oak-dark:#70492d;
+--paper:#f5efe2;
+--coal:#2d2d2d;
 }
 
 body{
-    font-family:'Outfit',sans-serif;
-    color:#1e293b;
-
-    background:
-    radial-gradient(circle at top left,#dbeafe 0%,transparent 40%),
-    radial-gradient(circle at bottom right,#fbcfe8 0%,transparent 40%),
-    linear-gradient(135deg,#f8fafc,#eef2ff);
-
-    min-height:100vh;
-    padding:40px 20px;
-
-    overflow-x:hidden;
+font-family:'Outfit',sans-serif;
+color:var(--coal);
+background:var(--paper);
+min-height:100vh;
+padding:30px;
+overflow-x:hidden;
 }
-
-/* dreamy blobs */
 
 body::before{
-    content:"";
-    position:fixed;
-
-    width:500px;
-    height:500px;
-
-    background:#c4b5fd;
-
-    filter:blur(120px);
-
-    opacity:.25;
-
-    top:-150px;
-    left:-100px;
-
-    z-index:-1;
+content:"";
+position:fixed;
+inset:0;
+background-image:radial-gradient(rgba(0,0,0,.03) 1px,transparent 1px);
+background-size:12px 12px;
+pointer-events:none;
 }
-
-body::after{
-    content:"";
-    position:fixed;
-
-    width:450px;
-    height:450px;
-
-    background:#f9a8d4;
-
-    filter:blur(120px);
-
-    opacity:.25;
-
-    bottom:-150px;
-    right:-100px;
-
-    z-index:-1;
-}
-
-/* container */
 
 .site-container{
-
-    max-width:1150px;
-    margin:auto;
-
-    background:rgba(255,255,255,.72);
-
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
-
-    border:1px solid rgba(255,255,255,.4);
-
-    border-radius:32px;
-
-    box-shadow:
-    0 25px 50px rgba(0,0,0,.08),
-    0 0 0 1px rgba(255,255,255,.3);
-
-    overflow:hidden;
+max-width:1150px;
+margin:auto;
+background:#fffaf0;
+border:4px solid var(--oak-dark);
+box-shadow:10px 10px 0 rgba(0,0,0,.15);
+overflow:hidden;
 }
 
-/* hero */
-
-.hero{
-    padding:80px 60px 60px;
-}
-
-.hero-top{
-    display:flex;
-    gap:30px;
-    align-items:center;
-    flex-wrap:wrap;
-}
+.hero{padding:60px;background:linear-gradient(to bottom,#faf6ec,#f2ead8);}
+.hero-top{display:flex;gap:30px;align-items:center;flex-wrap:wrap;}
 
 .avatar{
-
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-
-    background:linear-gradient(
-    135deg,
-    #c4b5fd,
-    #93c5fd
-    );
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-    font-size:42px;
-    font-weight:700;
-
-    box-shadow:
-    0 15px 30px rgba(99,102,241,.2);
-    
-}
-    
-.avatar img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
+width:120px;height:120px;
+border:4px solid var(--oak-dark);
+background:linear-gradient(135deg,var(--oak),var(--grass));
+display:flex;align-items:center;justify-content:center;
+font-size:42px;font-weight:800;color:white;
+box-shadow:5px 5px 0 rgba(0,0,0,.15);
 }
 
-.hero-title{
+.hero-title{font-size:3.5rem;font-weight:800;}
+.hero-subtitle{margin-top:16px;max-width:650px;line-height:1.8;color:#555;}
 
-    font-size:4rem;
-    font-weight:800;
-
-    line-height:1.1;
-
-    letter-spacing:-2px;
-
-    color:#0f172a;
-}
-
-.hero-subtitle{
-
-    margin-top:18px;
-
-    max-width:700px;
-
-    color:#64748b;
-
-    line-height:1.9;
-
-    font-size:1.1rem;
-}
-
-/* chips */
-
-.contact-row{
-
-    display:flex;
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:30px;
-}
+.contact-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px;}
 
 .contact-chip{
-
-    padding:10px 18px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,.65);
-
-    border:1px solid rgba(255,255,255,.4);
-
-    transition:.3s;
-
-    font-size:.9rem;
+padding:10px 16px;
+background:#fff;
+border:3px solid var(--oak);
+text-decoration:none;
+color:inherit;
+transition:.2s;
 }
 
 .contact-chip:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+transform:translate(-2px,-2px);
+box-shadow:4px 4px 0 rgba(0,0,0,.15);
 }
-
-/* divider */
 
 .section-divider{
-
-    height:1px;
-
-    background:
-    linear-gradient(
-    to right,
-    transparent,
-    rgba(100,116,139,.25),
-    transparent
-    );
+height:6px;
+background:repeating-linear-gradient(
+90deg,
+var(--grass),
+var(--grass) 20px,
+var(--grass-dark) 20px,
+var(--grass-dark) 40px);
 }
 
-/* content */
-
 .content-area{
-
-    padding:60px;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
+padding:50px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
 }
 
 .section-title{
-
-    margin-bottom:20px;
-
-    font-size:1.3rem;
-    font-weight:700;
-
-    color:#334155;
+margin-bottom:20px;
+font-size:1.2rem;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:2px;
+color:var(--grass-dark);
+border-left:8px solid var(--grass);
+padding-left:12px;
 }
 
-/* card */
-
 .content-card{
-
-    background:rgba(255,255,255,.55);
-
-    border:1px solid rgba(255,255,255,.4);
-
-    border-radius:24px;
-
-    padding:25px;
-
-    transition:.35s ease;
+background:#fffdf7;
+border:3px solid var(--oak);
+padding:24px;
+transition:.25s;
 }
 
 .content-card:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.08);
+transform:translate(-3px,-3px);
+box-shadow:6px 6px 0 rgba(0,0,0,.12);
 }
 
 .content-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:10px;
-
-    flex-wrap:wrap;
+display:flex;
+justify-content:space-between;
+gap:10px;
+flex-wrap:wrap;
 }
 
-.content-title{
+.content-title{font-size:1.1rem;font-weight:700;}
+.content-subtitle{color:var(--grass-dark);font-size:.9rem;margin-top:4px;}
+.content-date{font-size:.8rem;color:#777;}
+.content-description{margin-top:14px;line-height:1.8;color:#4f4f4f;}
 
-    font-size:1.1rem;
-    font-weight:700;
-}
-
-.content-subtitle{
-
-    color:#7c3aed;
-
-    font-size:.9rem;
-
-    margin-top:4px;
-}
-
-.content-date{
-
-    color:#94a3b8;
-
-    font-size:.8rem;
-}
-
-.content-description{
-
-    margin-top:14px;
-
-    color:#475569;
-
-    line-height:1.8;
-}
-
-/* tags */
-
-.tags{
-
-    display:flex;
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:16px;
-}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
 
 .tag{
-
-    background:#eef2ff;
-
-    color:#4f46e5;
-
-    padding:8px 14px;
-
-    border-radius:999px;
-
-    font-size:.8rem;
+background:var(--grass);
+color:white;
+border:2px solid var(--grass-dark);
+padding:7px 12px;
+font-size:.8rem;
 }
-
-/* footer */
 
 .footer{
-
-    padding:40px;
-
-    text-align:center;
-
-    color:#64748b;
-
-    border-top:1px solid rgba(148,163,184,.15);
+padding:35px;
+text-align:center;
+border-top:3px solid var(--oak);
+color:#666;
 }
-
-/* responsive */
 
 @media(max-width:900px){
-
-    .hero{
-        padding:50px 30px;
-    }
-
-    .content-area{
-
-        grid-template-columns:1fr;
-
-        padding:30px;
-    }
-
-    .hero-title{
-        font-size:2.8rem;
-    }
+.hero{padding:35px;}
+.content-area{grid-template-columns:1fr;padding:30px;}
+.hero-title{font-size:2.4rem;}
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="site-container">
 
-    <section class="hero">
-
-        <div class="hero-top">
-
-            <div class="avatar">
-                Gab
-            </div>
-
-            <div>
-
-                <h1 class="hero-title">
-                    Hello, I'm Gabriel.
-                </h1>
-
-                <p class="hero-subtitle">
-                    Huge outcome might start from simple steps.
-                </p>
-
-                <div class="contact-row">
-
-                    <div class="contact-chip">
-                        📍 South Tangerang, Indonesia
-                    </div>
-
-                    
-                    <a href="mailto:myrrhielo@gmail.com" class="contact-chip">
-                        ✉ myrrhielo@gmail.com
-                    </a>
-
-                    
-                    <a href="https://instagram.com/gbrlpost" 
-                        class="contact-chip" 
-                        target="_blank">
-                        📝 Instagram
-                    </a>
-                    
-                    <div class="contact-chip">
-                        🚀 Open to collaboration
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section class="content-area">
-
-        <div>
-
-            <h2 class="section-title">
-                Featured Work
-            </h2>
-
-            <div class="content-card">
-
-                <div class="content-header">
-
-                    <div>
-
-                        <div class="content-title">
-                            Security Research
-                        </div>
-
-                        <div class="content-subtitle">
-                            Exploration & Learning
-                        </div>
-
-                    </div>
-
-                    <div class="content-date">
-                        Ongoing
-                    </div>
-
-                </div>
-
-                <div class="content-description">
-                    Researching cybersecurity concepts,
-                    penetration testing methodologies,
-                    attack surfaces, and modern security
-                    practices.
-                </div>
-
-                <div class="tags">
-                    <span class="tag">Linux</span>
-                    <span class="tag">Networking</span>
-                    <span class="tag">Security</span>
-                </div>
-
-            </div>
-
-            <br>
-
-            <div class="content-card">
-
-                <div class="content-header">
-
-                    <div>
-
-                        <div class="content-title">
-                            Personal Projects
-                        </div>
-
-                        <div class="content-subtitle">
-                            Independent Development
-                        </div>
-
-                    </div>
-
-                    <div class="content-date">
-                        Ongoing
-                    </div>
-
-                </div>
-
-                <div class="content-description">
-                    Building experiments,
-                    scripts, and various
-                    software projects driven by curiosity.
-                </div>
-
-            </div>
-
-        </div>
-
-        <div>
-
-            <h2 class="section-title">
-                About Me
-            </h2>
-
-            <div class="content-card">
-
-                <div class="content-description">
-
-                    I enjoy learning how systems work,
-                    breaking complex ideas into practical machines, and creating projects
-                    that blend technology, creativity,
-                    and practical problem solving.
-
-                    <br><br>
-
-                    Aptitudes include:
-
-                    <div class="tags">
-
-                        <span class="tag">
-                            Cybersecurity
-                        </span>
-
-                        <span class="tag">
-                            Programming
-                        </span>
-
-                        <span class="tag">
-                            AI
-                        </span>
-
-                        <span class="tag">
-                            Networking
-                        </span>
-
-                        <span class="tag">
-                            Music
-                        </span>
-
-                          <span class="tag">
-                            Art
-                        </span>
-                        
-                        <span class="tag">
-                            Tech Personalization
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            <div class="content-card">
-
-                <div class="content-header">
-
-                    <div>
-
-                        <div class="content-title">
-                            Currently Exploring
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="content-description">
-
-                    • Web Development<br>
-                    • Cybersecurity Fundamentals<br>
-                    • Algorithms & Data Structures<br>
-                    • Artificial Intelligence<br>
-                    • System Design<br>
-                    • Linux<br>
-                    
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <footer class="footer">
-        vibe coded, but the rest is human.<br>
-        Copyright © 2026
-    </footer>
+<section class="hero">
+<div class="hero-top">
+
+<div class="avatar">Gab</div>
+
+<div>
+<h1 class="hero-title">Hello, I'm Gabriel.</h1>
+
+<p class="hero-subtitle">
+Learning, building, exploring, and occasionally getting lost on the way.
+</p>
+
+<div class="contact-row">
+<div class="contact-chip">📍 South Tangerang, Indonesia</div>
+<a href="mailto:myrrhielo@gmail.com" class="contact-chip">✉ myrrhielo@gmail.com</a>
+<a href="https://instagram.com/gbrlpost" target="_blank" class="contact-chip">📸 Instagram</a>
+<div class="contact-chip">⛏ Still gathering resources</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="content-area">
+
+<div>
+<h2 class="section-title">Featured Work</h2>
+
+<div class="content-card">
+<div class="content-header">
+<div>
+<div class="content-title">Security Research</div>
+<div class="content-subtitle">Exploration & Learning</div>
+</div>
+<div class="content-date">Ongoing</div>
+</div>
+
+<div class="content-description">
+Researching cybersecurity concepts, penetration testing methodologies, attack surfaces, and modern security practices.
+</div>
+
+<div class="tags">
+<span class="tag">Linux</span>
+<span class="tag">Networking</span>
+<span class="tag">Security</span>
+</div>
+</div>
+
+<br>
+
+<div class="content-card">
+<div class="content-header">
+<div>
+<div class="content-title">Personal Projects</div>
+<div class="content-subtitle">Independent Development</div>
+</div>
+<div class="content-date">Ongoing</div>
+</div>
+
+<div class="content-description">
+Building experiments, scripts, and various software projects driven by curiosity.
+</div>
+</div>
+</div>
+
+<div>
+<h2 class="section-title">About Me</h2>
+
+<div class="content-card">
+<div class="content-description">
+I enjoy learning how systems work, breaking complex ideas into practical machines, and creating projects that blend technology, creativity, and practical problem solving.
+
+<br><br>
+
+Aptitudes include:
+
+<div class="tags">
+<span class="tag">Cybersecurity</span>
+<span class="tag">Programming</span>
+<span class="tag">AI</span>
+<span class="tag">Networking</span>
+<span class="tag">Music</span>
+<span class="tag">Art</span>
+<span class="tag">Tech Personalization</span>
+</div>
+
+</div>
+</div>
+
+<br>
+
+<div class="content-card">
+<div class="content-title">Currently Exploring</div>
+
+<div class="content-description">
+• Web Development<br>
+• Cybersecurity Fundamentals<br>
+• Algorithms & Data Structures<br>
+• Artificial Intelligence<br>
+• System Design<br>
+• Linux
+</div>
 
 </div>
 
+</div>
+
+</section>
+
+<footer class="footer">
+
+    <span id="survival-counter"></span><br>
+    still gathering resources.<br>
+    vibe coded, but the rest is human.<br>
+
+    Copyright © <span id="year"></span>
+
+</footer>
+
+<script>
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+const spawnDate = new Date("2007-02-25");
+
+const today = new Date();
+
+const diffTime =
+today - spawnDate;
+
+const diffDays =
+Math.floor(
+diffTime / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById(
+"survival-counter"
+).textContent =
+`Day ${diffDays.toLocaleString()} in survival mode`;
+
+</script>
+
+</div>
 </body>
 </html>
